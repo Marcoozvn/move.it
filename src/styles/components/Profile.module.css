@@ -1,29 +1,40 @@
 .profileContainer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.profileContainer > img {
+.profileContainer > svg {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.userInfo > img {
   width: 5.5rem;
   height: 5.5rem;
   border-radius: 58%;
 }
 
-.profileContainer div {
+.userInfo div {
   margin-left: 1.5rem;
 }
 
-.profileContainer div strong {
+.userInfo div strong {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--title);
 }
 
-.profileContainer div p {
+.userInfo div p {
   font-size: 1rem;
   margin-top: 0.5rem;
 }
 
-.profileContainer div p img {
+.userInfo div p img {
   margin-right: 0.5rem;
 }
