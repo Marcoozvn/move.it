@@ -12,7 +12,7 @@ export default function Login() {
           <img src="/icons/github.svg" alt="Github" />
           <p>Faça login com seu Github para começar</p>
         </GithubBlock>
-        <GithubButton onClick={() => signIn('github', { callbackUrl: 'http://localhost:3000' })}>
+        <GithubButton onClick={() => signIn('github', { callbackUrl: 'http://localhost:3000/dashboard' })}>
           <img src="/icons/github.svg" alt="Github" />
         </GithubButton>
       </Main>
@@ -26,7 +26,7 @@ export const getStaticProps = async (ctx) => {
   if (session) {
     return {
       redirect: {
-        destination: '/'
+        destination: '/dashboard'
       }
     }
   }
