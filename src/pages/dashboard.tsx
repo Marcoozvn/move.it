@@ -8,7 +8,7 @@ import { ChallengesProvider } from '../contexts/ChallengesContext';
 
 import Head from 'next/head'
 
-import styles from '../styles/pages/Home.module.css';
+import { Container } from '../styles/pages/Dashboard';
 import { getSession } from "next-auth/client";
 
 interface HomeProps {
@@ -24,7 +24,7 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
       currentExperience={currentExperience}
       challengesCompleted={challengesCompleted}
     >
-      <div className={styles.container}>
+      <Container>
         <Head>
           <title>Inicio | move.it</title>
         </Head>
@@ -43,7 +43,7 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
             </div>
           </section>
         </CountdownProvider>
-      </div>
+      </Container>
     </ChallengesProvider>
   )
 }

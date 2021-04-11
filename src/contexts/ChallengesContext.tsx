@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
 import challenges from '../../challenges.json';
 import Cookies from 'js-cookie';
-import LevelUpModal from '../components/LevelUpModel';
+import LevelUpModal from '../components/LevelUpModal';
+import { useSession } from 'next-auth/client';
+import axios from 'axios';
 
 interface IChallenge {
   type: 'body' | 'eye';
@@ -31,6 +33,7 @@ interface IChallengesProviderProps {
 export const ChallengesContext = createContext({} as IChallengesContextData);
 
 export const ChallengesProvider: React.FC<IChallengesProviderProps> = (props) => {
+  const [session] = useSession();
   const [level, setLevel] = useState(props.level ?? 1);
   const [currentExperience, setCurrentExperience] = useState(props.currentExperience ?? 0);
   const [challengesCompleted, setChallengesCompleted] = useState(props.challengesCompleted ?? 0);
@@ -94,6 +97,10 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = (props) =>
     setActiveChallenge(null);
     setChallengesCompleted(challengesCompleted + 1);
   }
+
+  useEffect(() => {
+    axios.post('/api/user', { email: session.user.email, level, currentExperience, challengesCompleted }).then(result => console.log(result));
+  }, [level, currentExperience, challengesCompleted]);
 
   return (
     <ChallengesContext.Provider
