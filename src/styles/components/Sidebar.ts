@@ -20,9 +20,15 @@ export const Container = styled.div`
   > img {
     position: absolute;
     top: 2rem;
-    left: 2rem;
     width: 3rem;
     height: 2.625rem;
+  }
+
+  > button {
+    position: absolute;
+    bottom: 2rem;
+    width: 2rem;
+    height: 2rem;
   }
 `
 

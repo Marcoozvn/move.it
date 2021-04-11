@@ -55,7 +55,7 @@ export const GithubButton = styled.button`
   background: linear-gradient(90deg, #4953b8 0%, rgba(73, 83, 184, 0.2) 100%);
   border: 0;
   border-radius: 5px;
-  outline: 1px solid var(--blue);
+  outline: 1px solid ${props => props.theme.colors.blue};
   color: #fff;
   transition: background-color 0.2s;
 
@@ -64,7 +64,6 @@ export const GithubButton = styled.button`
   }
 
   &:hover {
-    background: ${shade(0.2, '#4CD62B')};
+    background: ${props => shade(0.2, props.theme.colors.green)};
   }
-
 `;

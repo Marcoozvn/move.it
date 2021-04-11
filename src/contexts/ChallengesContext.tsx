@@ -33,7 +33,7 @@ interface IChallengesProviderProps {
 export const ChallengesContext = createContext({} as IChallengesContextData);
 
 export const ChallengesProvider: React.FC<IChallengesProviderProps> = (props) => {
-  const [session] = useSession();
+  const [session, loading] = useSession();
   const [level, setLevel] = useState(props.level ?? 1);
   const [currentExperience, setCurrentExperience] = useState(props.currentExperience ?? 0);
   const [challengesCompleted, setChallengesCompleted] = useState(props.challengesCompleted ?? 0);
@@ -99,7 +99,9 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = (props) =>
   }
 
   useEffect(() => {
-    axios.post('/api/user', { email: session.user.email, level, currentExperience, challengesCompleted }).then(result => console.log(result));
+    if (!loading) {
+      axios.post('/api/user', { email: session.user.email, level, currentExperience, challengesCompleted }).then(result => console.log(result));
+    }
   }, [level, currentExperience, challengesCompleted]);
 
   return (

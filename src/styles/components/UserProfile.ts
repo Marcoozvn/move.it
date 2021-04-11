@@ -23,7 +23,7 @@ export const Container = styled.div<ContainerProps>`
     strong {
       font-size: ${props => props.mini ? '1.25rem' : '1.5rem'};
       font-weight: 600;
-      color: var(--title);
+      color: ${props => props.theme.colors.title};
     }
   }
 
