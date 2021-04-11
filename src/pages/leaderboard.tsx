@@ -4,15 +4,7 @@ import axios from 'axios';
 
 import { Container, Header, TableHead, TableRow, PositionColumn, UserColumn, ChallengesColumn, ExperienceColumn, PositionHead, UserHead, ChallengesHead, ExperienceHead } from '../styles/pages/Leaderboard';
 import { getSession } from 'next-auth/client';
-
-interface IUser {
-  name: string;
-  email: string;
-  image: string;
-  challengesCompleted: number;
-  currentExperience: number;
-  level: number;
-}
+import IUser from '../models/IUser';
 
 export default function Leaderboard({ users }) {
 

@@ -11,19 +11,10 @@ import Head from 'next/head'
 import { Container } from '../styles/pages/Dashboard';
 import { getSession } from "next-auth/client";
 
-interface HomeProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
-}
 
-export default function Home({ level, currentExperience, challengesCompleted }: HomeProps) {
+export default function Home() {
   return (
-    <ChallengesProvider
-      level={level}
-      currentExperience={currentExperience}
-      challengesCompleted={challengesCompleted}
-    >
+    <ChallengesProvider>
       <Container>
         <Head>
           <title>Inicio | move.it</title>
@@ -49,7 +40,6 @@ export default function Home({ level, currentExperience, challengesCompleted }: 
 }
 
 export const getServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
   const session = await getSession(ctx);
 
   if (!session) {
@@ -62,9 +52,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
+      
     }
   }
 }

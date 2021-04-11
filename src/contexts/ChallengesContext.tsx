@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import LevelUpModal from '../components/LevelUpModal';
 import { useSession } from 'next-auth/client';
 import axios from 'axios';
+import IUser from '../models/IUser';
 
 interface IChallenge {
   type: 'body' | 'eye';
@@ -24,19 +25,14 @@ interface IChallengesContextData {
   closeLevelUpModal: () => void;
 }
 
-interface IChallengesProviderProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
-}
 
 export const ChallengesContext = createContext({} as IChallengesContextData);
 
-export const ChallengesProvider: React.FC<IChallengesProviderProps> = (props) => {
+export const ChallengesProvider: React.FC = (props) => {
   const [session, loading] = useSession();
-  const [level, setLevel] = useState(props.level ?? 1);
-  const [currentExperience, setCurrentExperience] = useState(props.currentExperience ?? 0);
-  const [challengesCompleted, setChallengesCompleted] = useState(props.challengesCompleted ?? 0);
+  const [level, setLevel] = useState(0);
+  const [currentExperience, setCurrentExperience] = useState(0);
+  const [challengesCompleted, setChallengesCompleted] = useState(0);
   const [activeChallenge, setActiveChallenge] = useState(null);
   const [ísLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
 
@@ -45,6 +41,17 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = (props) =>
   useEffect(() => {
     Notification.requestPermission();
   }, []);
+
+  useEffect(() => {
+    if (session) {
+      axios.get<IUser>(`/api/me?email=${session.user.email}`).then(response => {
+        setLevel(response.data.level);
+        setCurrentExperience(response.data.currentExperience);
+        setChallengesCompleted(response.data.challengesCompleted);
+      })
+
+    }
+  }, [session]);
 
   useEffect(() => {
     Cookies.set('level', String(level));
