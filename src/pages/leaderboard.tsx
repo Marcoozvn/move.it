@@ -60,7 +60,7 @@ export const getServerSideProps = async (ctx) => {
     }
   }
 
-  const response = await axios.get<IUser[]>('http://localhost:3000/api/user');
+  const response = await axios.get<IUser[]>(`${process.env.API_URL}/user`);
 
   console.log(response.data);
 

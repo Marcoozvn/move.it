@@ -6,6 +6,7 @@ declare module 'styled-components' {
     colors: {
       white: string,
       background: string,
+      backgroundOverlay: string,
       grayLine: string,
       text: string,
       textHighlight: string,

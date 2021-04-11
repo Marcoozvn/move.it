@@ -12,7 +12,7 @@ export default function Login() {
           <img src="/icons/github.svg" alt="Github" />
           <p>Faça login com seu Github para começar</p>
         </GithubBlock>
-        <GithubButton onClick={() => signIn('github', { callbackUrl: 'http://localhost:3000/dashboard' })}>
+        <GithubButton onClick={() => signIn('github', { callbackUrl: `${process.env.NEXTAUTH_URL}/dashboard` })}>
           <img src="/icons/github.svg" alt="Github" />
         </GithubButton>
       </Main>

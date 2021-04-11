@@ -44,7 +44,7 @@ export const ChallengesProvider: React.FC = (props) => {
 
   useEffect(() => {
     if (session) {
-      axios.get<IUser>(`/api/me?email=${session.user.email}`).then(response => {
+      axios.get<IUser>(`${process.env.API_URL}/me?email=${session.user.email}`).then(response => {
         setLevel(response.data.level);
         setCurrentExperience(response.data.currentExperience);
         setChallengesCompleted(response.data.challengesCompleted);
@@ -107,7 +107,7 @@ export const ChallengesProvider: React.FC = (props) => {
 
   useEffect(() => {
     if (!loading) {
-      axios.post('/api/user', { email: session.user.email, level, currentExperience, challengesCompleted }).then(result => console.log(result));
+      axios.post(`${process.env.API_URL}/user`, { email: session.user.email, level, currentExperience, challengesCompleted }).then(result => console.log(result));
     }
   }, [level, currentExperience, challengesCompleted]);
 

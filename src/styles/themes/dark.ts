@@ -12,7 +12,7 @@ export default {
     green: '#4CD62B',
     blue: '#5965e0',
     blueDark: '#4953b8',
-    twitter: '#2AA9E0',
+    blueTwitter: '#2AA9E0',
   },
   gradient: 'linear-gradient(180deg, #21262d 0%, rgba(13, 17, 23, 0) 100%)',
   boxShadow: '0 0 6px rgba(0, 0, 0, 0.5)',
