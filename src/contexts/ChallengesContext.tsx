@@ -25,14 +25,20 @@ interface IChallengesContextData {
   closeLevelUpModal: () => void;
 }
 
+interface IChallengesProviderProps {
+  level: number;
+  currentExperience: number;
+  challengesCompleted: number;
+}
+
 
 export const ChallengesContext = createContext({} as IChallengesContextData);
 
-export const ChallengesProvider: React.FC = (props) => {
+export const ChallengesProvider: React.FC<IChallengesProviderProps> = (props) => {
   const [session, loading] = useSession();
-  const [level, setLevel] = useState(0);
-  const [currentExperience, setCurrentExperience] = useState(0);
-  const [challengesCompleted, setChallengesCompleted] = useState(0);
+  const [level, setLevel] = useState(props.level ?? 0);
+  const [currentExperience, setCurrentExperience] = useState(props.currentExperience ?? 0);
+  const [challengesCompleted, setChallengesCompleted] = useState(props.challengesCompleted ?? 0);
   const [activeChallenge, setActiveChallenge] = useState(null);
   const [ísLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
 
@@ -44,7 +50,7 @@ export const ChallengesProvider: React.FC = (props) => {
 
   useEffect(() => {
     if (session) {
-      axios.get<IUser>(`${process.env.API_URL}/me?email=${session.user.email}`).then(response => {
+      axios.get<IUser>(`/api/me?email=${session.user.email}`).then(response => {
         setLevel(response.data.level);
         setCurrentExperience(response.data.currentExperience);
         setChallengesCompleted(response.data.challengesCompleted);
@@ -107,7 +113,7 @@ export const ChallengesProvider: React.FC = (props) => {
 
   useEffect(() => {
     if (!loading) {
-      axios.post(`${process.env.API_URL}/user`, { email: session.user.email, level, currentExperience, challengesCompleted }).then(result => console.log(result));
+      axios.post(`/api/user`, { email: session.user.email, level, currentExperience, challengesCompleted }).then(result => console.log(result));
     }
   }, [level, currentExperience, challengesCompleted]);
 
