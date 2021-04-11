@@ -1,19 +1,11 @@
 # Moveit
 
-Aplicação desenvolvida durante a NLW #4. Utiliza a técnica de pomodoro com o intuito de tornar o trabalho dos devs mais produtivo e saudável. Acesse a aplicação em produção [Aqui](https://moveit-nine-kohl.vercel.app/)
+Aplicação desenvolvida durante a NLW #4. Utiliza a técnica de pomodoro com o intuito de tornar o trabalho dos devs mais produtivo e saudável.
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+## Preview 
+[![Deploy with Vercel](https://vercel.com/button)](https://moveit-nine-kohl.vercel.app/)
 
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Marcoozvn/move.it">
-  
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Marcoozvn/move.it">
-  
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Marcoozvn/move.it">
-  
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Marcoozvn/move.it">
-
-</div>
-
+## Capa
 ![Alt](https://drive.google.com/uc?export=view&id=1QjUGjFXfC9Nyso0S18fFgYKDpLtOR6kg)
 
 
