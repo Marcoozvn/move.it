@@ -12,10 +12,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 7rem;
+  width: 6rem;
   height: 100vh;
-  background: ${props => props.theme.colors.white};
-  box-shadow: 0px 0px 60px 0px #000000 5%;
+  background: ${props => props.theme.title === 'light' ? props.theme.colors.white : props.theme.gradient};
+  box-shadow: ${props => props.theme.boxShadow};
 
   > img {
     position: absolute;
@@ -45,7 +45,7 @@ export const NavItem = styled.div<NavItemProps>`
   svg {
     cursor: pointer;
     opacity: ${props => props.active ? 1.0 : 0.5};
-    color: ${props => props.active ? '#5965E0' : props.theme.colors.title};
+    color: ${props => props.active ? props.theme.colors.blue : props.theme.colors.title};
     font-size: 2rem;
   }
 `

@@ -15,6 +15,8 @@ declare module 'styled-components' {
       blue: string,
       blueDark: string,
       blueTwitter: string,
-    }
+    },
+    gradient: string;
+    boxShadow: string;
   }
 }

@@ -6,7 +6,7 @@ export function Layout(props) {
 
   return (
     <>
-      {!loading && session &&
+      {session &&
         <div style={{ display: 'flex' }}>
           <Sidebar />
           {props.children}
