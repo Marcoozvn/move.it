@@ -19,6 +19,7 @@ export const ChallengeNotActive = styled.div`
   align-items: center;
 
   strong {
+    color: ${props => props.theme.title === 'light' ? props.theme.colors.text : props.theme.colors.textHighlight};
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.4;
@@ -83,7 +84,7 @@ export const ChallengeActive = styled.div`
     justify-content: center;
     border: 0;
     border-radius: 5px;
-    color: ${props => props.theme.colors.white};
+    color: ${props => props.theme.title === 'light' ? props.theme.colors.white : props.theme.colors.title};
 
     font-size: 1rem;
     font-weight: 600;

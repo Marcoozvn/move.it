@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
-  color: #2E384D;
+  color: ${props => props.theme.colors.title};
   font-size: 2.25rem;
   font-weight: 600;
   line-height: 2.875rem;
@@ -26,9 +26,10 @@ export const TableHead = styled.div`
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.05875rem;
-  opacity: 0.5;
+  opacity: ${props => props.theme.title === 'light' ? 0.5 : 1};
 
   margin-bottom: 1.5rem;
+  color: ${props => props.theme.title === 'light' ? props.theme.colors.text : props.theme.colors.textHighlight }
 `;
 
 export const PositionHead = styled.span`
@@ -51,7 +52,7 @@ export const ExperienceHead = styled.span`
 `;
 
 export const TableRow = styled.div`
-  background: #fff;
+  background: ${props => props.theme.colors.white};
   display: flex;
 
   height: 6rem;
@@ -67,7 +68,7 @@ export const PositionColumn = styled.div`
   width: 100%;
   height: 100%;
 
-  border-right: 4px solid #f0f1f3;
+  border-right: 4px solid ${props => props.theme.colors.background};
 
   font-size: 1.5rem;
   line-height: 1.81rem;
@@ -85,7 +86,7 @@ export const ChallengesColumn = styled.div`
   flex: 1;
 
   strong {
-    color: #5965E0;
+    color: ${props => props.theme.colors.blue};
   }
 `;
 
@@ -93,7 +94,7 @@ export const ExperienceColumn = styled.div`
   flex: 1;
 
   strong {
-    color: #5965E0;
+    color: ${props => props.theme.colors.blue};
   }
 `;
 

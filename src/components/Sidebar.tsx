@@ -17,7 +17,7 @@ export default function Sidebar() {
 
   return (
     <Container>
-      <img src="icons/logo-icon.svg" alt="logo" />
+      <img src="icons/logo-icon.png" alt="logo" />
       <NavItem onClick={() => push('dashboard')}  active={route === '/dashboard'}>
         {route === '/dashboard' && <Border />}
         <FiHome />
@@ -26,7 +26,7 @@ export default function Sidebar() {
         {route === '/leaderboard' && <Border />}
         <FiAward />
       </NavItem>  
-      <Switch checked={switchActive} onChange={handleToogle} />
+      <Switch size={"4rem"} checked={switchActive} onChange={handleToogle} />
     </Container>
   )
 }

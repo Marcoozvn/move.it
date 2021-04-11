@@ -1,12 +1,12 @@
 export default {
   title: 'dark',
   colors: {
-    white: '#fff',
+    white: '#555760',
     background: '#111',
     grayLine: '#dcdde0',
-    text: '#666666',
+    text: '#D6D6D6',
     textHighlight: '#b3b9ff',
-    title: '#2e384d',
+    title: '#F2F4F6',
     red: '#e83f5b',
     green: '#4cd62b',
     blue: '#5965e0',

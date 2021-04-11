@@ -52,7 +52,7 @@ export const CountdownButton = styled.button<Props>`
   border: 0;
   border-radius: 5px;
   background: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.title === 'light' ? props.theme.colors.white : props.theme.colors.title};
   font-size: 1.25rem;
   font-weight: 600;
 
@@ -74,7 +74,7 @@ export const CountdownButton = styled.button<Props>`
 
     :not(:disabled):hover {
       background: ${props => props.theme.colors.red};
-      color: ${props => props.theme.colors.white};
+      color: ${props => props.theme.title === 'light' ? props.theme.colors.white : props.theme.colors.title};
     }
   `}
 `;

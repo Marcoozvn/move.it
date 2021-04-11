@@ -56,7 +56,7 @@ export const getServerSideProps = async (ctx) => {
     return {
       redirect: {
         destination: '/login'
-      }
+      } 
     }
   }
 

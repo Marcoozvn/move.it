@@ -14,7 +14,7 @@ export const Container = styled.div`
 
   width: 7rem;
   height: 100vh;
-  background: #fff;
+  background: ${props => props.theme.colors.white};
   box-shadow: 0px 0px 60px 0px #000000 5%;
 
   > img {
@@ -22,6 +22,7 @@ export const Container = styled.div`
     top: 2rem;
     width: 3rem;
     height: 2.625rem;
+    background-color: transparent;
   }
 
   > button {
@@ -44,7 +45,7 @@ export const NavItem = styled.div<NavItemProps>`
   svg {
     cursor: pointer;
     opacity: ${props => props.active ? 1.0 : 0.5};
-    color: ${props => props.active ? '#5965E0' : '#666666'};
+    color: ${props => props.active ? '#5965E0' : props.theme.colors.title};
     font-size: 2rem;
   }
 `
