@@ -14,37 +14,37 @@ export default function Leaderboard({ users }) {
         <title>Leaderboard | move.it</title>
       </Head>
 
-        <Header>
-          Leaderboard
+      <Header>
+        Leaderboard
         </Header>
 
-        <TableHead>
-          <PositionHead>Posição</PositionHead>
-          <UserHead>
-            <span>Usuário</span>
-          </UserHead>
-          <ChallengesHead>Desafios</ChallengesHead>
-          <ExperienceHead>Experiência</ExperienceHead>
-        </TableHead>
+      <TableHead>
+        <PositionHead>Posição</PositionHead>
+        <UserHead>
+          <span>Usuário</span>
+        </UserHead>
+        <ChallengesHead>Desafios</ChallengesHead>
+        <ExperienceHead>Experiência</ExperienceHead>
+      </TableHead>
 
 
-        { users.map((user: IUser) => (
-          <TableRow key={user.email}>
-            <PositionColumn>1</PositionColumn>
-            <UserColumn>
-              <UserProfile user={user} level={user.level} mini={true}/>
-            </UserColumn>
-            <ChallengesColumn>
-              <strong>{user.challengesCompleted} </strong>
+      { users.map((user: IUser) => (
+        <TableRow key={user.email}>
+          <PositionColumn>1</PositionColumn>
+          <UserColumn>
+            <UserProfile user={user} level={user.level} mini={true} />
+          </UserColumn>
+          <ChallengesColumn>
+            <strong>{user.challengesCompleted} </strong>
               completados
             </ChallengesColumn>
-            <ExperienceColumn>
-              <strong>{user.currentExperience} </strong>
+          <ExperienceColumn>
+            <strong>{user.currentExperience} </strong>
               xp
             </ExperienceColumn>
-          </TableRow>
-          ))
-        }
+        </TableRow>
+      ))
+      }
     </Container>
   )
 }
