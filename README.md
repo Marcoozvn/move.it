@@ -2,6 +2,8 @@
 
 Aplicação desenvolvida durante a NLW #4. Utiliza a técnica de pomodoro com o intuito de tornar o trabalho dos devs mais produtivo e saudável.
 
+O login é feito usando Social Login com a conta do Github.
+
 ## Preview 
 [![Deploy with Vercel](https://vercel.com/button)](https://moveit-nine-kohl.vercel.app/)
 
